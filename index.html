@@ -37,9 +37,10 @@
         "description": "Montaggio professionale di infissi, finestre e porte su misura.",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Via dell'Innovazione 10",
-          "addressLocality": "Milano",
-          "postalCode": "20100",
+          "streetAddress": "Via Alessandro Manzoni, 13",
+          "addressLocality": "Borgo San Giovanni",
+          "postalCode": "26851",
+          "addressRegion": "LO",
           "addressCountry": "IT"
         },
         "telephone": "+39 02 1234 5678",
@@ -82,9 +83,9 @@
             <li><a href="#chi-siamo">Chi siamo</a></li>
             <li><a href="#servizi">Servizi</a></li>
             <li><a href="#vantaggi">Vantaggi</a></li>
-            <li><a href="#galleria">Galleria</a></li>
             <li><a href="#partnership">Partnership</a></li>
             <li><a href="#contatti">Contatti</a></li>
+            <li class="nav-cta"><a class="btn btn-primary" href="#preventivo">Richiedi un preventivo</a></li>
           </ul>
         </nav>
         <a class="btn btn-primary" href="#preventivo">Richiedi un preventivo</a>
@@ -129,7 +130,7 @@
           <div>
             <h2>Chi siamo</h2>
             <p>
-              Dal 2002 FERJET trasforma gli spazi con soluzioni in infissi di qualità superiore. La nostra
+              Dal 2015 FERJET trasforma gli spazi con soluzioni in infissi di qualità superiore. La nostra
               missione è offrire installazioni precise, consulenza trasparente e prodotti certificati per
               migliorare il benessere quotidiano.
             </p>
@@ -215,22 +216,6 @@
         </div>
       </section>
 
-      <section id="galleria" class="section gallery">
-        <div class="container">
-          <div class="section-header">
-            <h2>Galleria lavori</h2>
-            <p>Alcuni esempi di installazioni prima e dopo il nostro intervento.</p>
-          </div>
-          <div class="gallery-grid">
-            <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=900&q=80" alt="Infissi installati in soggiorno" />
-            <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=900&q=80" alt="Dettaglio finestra moderna" />
-            <img src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=900&q=80" alt="Zanzariere installate" />
-            <img src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=900&q=80" alt="Porta d'ingresso installata" />
-            <img src="https://images.unsplash.com/photo-1501045661006-fcebe0257c3f?auto=format&fit=crop&w=900&q=80" alt="Infissi interni prima e dopo" />
-            <img src="https://images.unsplash.com/photo-1502005097973-6a7082348e28?auto=format&fit=crop&w=900&q=80" alt="Infissi in un ufficio moderno" />
-          </div>
-        </div>
-      </section>
 
       <section id="partnership" class="section partnership">
         <div class="container">
@@ -277,7 +262,7 @@
               <li>Installazione e collaudo</li>
             </ul>
           </div>
-          <form class="form" action=https://manudicri.altervista.org/ferjet/form.php method="POST" aria-label="Richiesta preventivo">
+          <form class="form" id="quote-form" aria-label="Richiesta preventivo">
             <label>
               Nome e cognome
               <input type="text" name="nome" placeholder="Mario Rossi" required />
@@ -309,6 +294,14 @@
         </div>
       </section>
 
+      <div class="modal-overlay" id="quote-modal" role="dialog" aria-modal="true" aria-labelledby="quote-modal-title" aria-hidden="true">
+        <div class="modal">
+          <h3 id="quote-modal-title">Richiesta inviata!</h3>
+          <p>Grazie per averci scritto. Ti risponderemo al più presto con tutti i dettagli.</p>
+          <button class="btn btn-secondary" type="button" id="quote-modal-close">Chiudi</button>
+        </div>
+      </div>
+
       <section id="contatti" class="section contact">
         <div class="container grid-two">
           <div>
@@ -325,7 +318,11 @@
               </div>
               <div>
                 <h3>Sede</h3>
-                <p>Via dell'Innovazione 10, 20100 Milano</p>
+                <p>
+                  No Vendita Diretta:<br />
+                  Via Alessandro Manzoni, 13<br />
+                  26851- Borgo San Giovanni (LO) - IT
+                </p>
               </div>
             </div>
             <form class="form" aria-label="Modulo di contatto">
@@ -351,7 +348,7 @@
           <div class="map-wrapper">
             <iframe
               title="Mappa sede FERJET"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.7229237843884!2d9.18998231518755!3d45.4642039791005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47755c1b4d0c7d5f%3A0x6a3e7c58d3a5b3e3!2sMilano!5e0!3m2!1sit!2sit!4v1719999999999!5m2!1sit!2sit"
+              src="https://www.google.com/maps?q=Via%20Alessandro%20Manzoni%2013%2C%20Borgo%20San%20Giovanni&output=embed"
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
