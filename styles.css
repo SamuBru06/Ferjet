@@ -347,7 +347,13 @@ a {
 }
 
 .hero-image {
-  background-image: url("https://images.unsplash.com/photo-1481277542470-605612bd2d61?auto=format&fit=crop&w=1000&q=80");
+  background-image: url("fotoinizio.png");
+}
+
+@media (max-width: 900px) {
+  .hero-image {
+    background-position: center top;
+  }
 }
 
 .about-image {
