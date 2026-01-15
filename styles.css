@@ -377,6 +377,16 @@ a {
   color: var(--muted);
 }
 
+.section-header.back-link {
+  text-align: left;
+}
+
+.section-header.back-link .btn-secondary {
+  padding: 0.4rem 1rem;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
 .grid-two {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -447,12 +457,69 @@ a {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
+.service-card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-card:hover,
+.service-card:focus {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+}
+
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+}
+
 .card img {
   border-radius: 12px;
   margin-bottom: 1rem;
   height: 170px;
   object-fit: cover;
   width: 100%;
+}
+
+.service-detail .card {
+  padding: 1.75rem;
+}
+
+.service-detail .card img {
+  height: 280px;
+}
+
+.zoomable {
+  cursor: zoom-in;
+}
+
+.image-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 12, 18, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 1100;
+}
+
+.image-lightbox.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.image-lightbox img {
+  max-width: min(960px, 92vw);
+  max-height: 82vh;
+  border-radius: 16px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
 }
 
 .card h3 {

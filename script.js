@@ -56,3 +56,41 @@ if (quoteModal && quoteModalClose) {
     }
   });
 }
+
+const zoomableImages = document.querySelectorAll(".zoomable");
+
+if (zoomableImages.length > 0) {
+  let lightbox = document.querySelector(".image-lightbox");
+  if (!lightbox) {
+    lightbox = document.createElement("div");
+    lightbox.className = "image-lightbox";
+    lightbox.setAttribute("aria-hidden", "true");
+    lightbox.innerHTML = '<img alt="Zoom immagine" />';
+    document.body.appendChild(lightbox);
+  }
+
+  const lightboxImage = lightbox.querySelector("img");
+
+  const closeLightbox = () => {
+    lightbox.classList.remove("show");
+    lightbox.setAttribute("aria-hidden", "true");
+  };
+
+  zoomableImages.forEach((image) => {
+    image.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      lightboxImage.src = image.src;
+      lightboxImage.alt = image.alt || "Zoom immagine";
+      lightbox.classList.add("show");
+      lightbox.setAttribute("aria-hidden", "false");
+    });
+  });
+
+  lightbox.addEventListener("click", closeLightbox);
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeLightbox();
+    }
+  });
+}
