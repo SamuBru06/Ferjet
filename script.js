@@ -73,6 +73,7 @@ if (zoomableImages.length > 0) {
 
   const closeLightbox = () => {
     lightbox.classList.remove("show");
+    lightbox.classList.remove("tende");
     lightbox.setAttribute("aria-hidden", "true");
   };
 
@@ -80,6 +81,11 @@ if (zoomableImages.length > 0) {
     image.addEventListener("click", (event) => {
       event.preventDefault();
       event.stopPropagation();
+      if (image.dataset.lightbox === "tende") {
+        lightbox.classList.add("tende");
+      } else {
+        lightbox.classList.remove("tende");
+      }
       lightboxImage.src = image.src;
       lightboxImage.alt = image.alt || "Zoom immagine";
       lightbox.classList.add("show");
