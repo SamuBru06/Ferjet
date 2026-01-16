@@ -20,26 +20,28 @@ const quoteModal = document.querySelector("#quote-modal");
 const quoteModalClose = document.querySelector("#quote-modal-close");
 
 if (quoteForm) {
-  quoteForm.addEventListener("submit", (event) => {
+  quoteForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     const formData = new FormData(quoteForm);
-    const subject = "Richiesta preventivo FERJET";
-    const body = [
-      `Nome e cognome: ${formData.get("nome") || ""}`,
-      `Email: ${formData.get("email") || ""}`,
-      `Telefono: ${formData.get("telefono") || ""}`,
-      `Tipo di progetto: ${formData.get("progetto") || ""}`,
-      `Descrizione: ${formData.get("messaggio") || ""}`,
-    ].join("\n");
-    const mailtoUrl = `mailto:samuelebruzzi@gmail.com?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailtoUrl;
-    if (quoteModal) {
-      quoteModal.classList.add("show");
-      quoteModal.setAttribute("aria-hidden", "false");
+    const endpoint = quoteForm.getAttribute("action") || "form.php";
+
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        body: formData,
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || !result.ok) {
+        throw new Error(result.error || "Errore invio richiesta.");
+      }
+      if (quoteModal) {
+        quoteModal.classList.add("show");
+        quoteModal.setAttribute("aria-hidden", "false");
+      }
+      quoteForm.reset();
+    } catch (error) {
+      alert(error.message || "Errore invio richiesta.");
     }
-    quoteForm.reset();
   });
 }
 
