@@ -23,7 +23,8 @@ if (quoteForm) {
   quoteForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     const formData = new FormData(quoteForm);
-    const endpoint = quoteForm.getAttribute("action") || "form.php";
+    const endpoint =
+      quoteForm.getAttribute("action") || "https://ferjet.altervista.org/form.php";
 
     try {
       const response = await fetch(endpoint, {
