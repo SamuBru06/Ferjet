@@ -25,7 +25,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
-$to = 'samuelebruzzi@gmail.com';
+$to = 'info@ferjet.it';
 $subject = 'Richiesta preventivo FERJET';
 $body = "Nome e cognome: {$nome}\n";
 $body .= "Email: {$email}\n";
